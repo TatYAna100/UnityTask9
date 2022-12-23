@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class DetectСomponent : MonoBehaviour
+public class Detect : MonoBehaviour
 {
     [SerializeField] private float _distanceLowPoint;
 
