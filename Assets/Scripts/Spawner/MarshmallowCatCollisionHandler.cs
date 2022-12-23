@@ -6,7 +6,7 @@ public class MarshmallowCatCollisionHandler : MonoBehaviour
 {
     [SerializeField] private UnityEvent _reached;
 
-    private const string Collision = "Collision";
+    private const string _collision = "Collision";
     private MarshmallowCat _marshmallowCat;
     private Animator _animator;
 
@@ -22,7 +22,7 @@ public class MarshmallowCatCollisionHandler : MonoBehaviour
         {
             _reached?.Invoke();
             scoreZone.IncreaseScore();
-            _animator.SetTrigger(Collision);
+            _animator.SetTrigger(_collision);
         }
         else if (collision.TryGetComponent(out GameOverZone gameOverZone))
         {
