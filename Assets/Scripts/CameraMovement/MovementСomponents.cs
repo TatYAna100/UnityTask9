@@ -3,9 +3,10 @@ using UnityEngine;
 public class MovementСomponents : MonoBehaviour
 {
     [SerializeField] private Transform _target;
-    [SerializeField] private Detect _detect;
+    [SerializeField] private FillingComponents _fillingComponents;
 
     private float _duration;
+    private float _runningTime;
     private int _distanceMoving;
     private bool _isMove;
     private Vector3 _currentPosition;
@@ -13,16 +14,17 @@ public class MovementСomponents : MonoBehaviour
 
     private void OnEnable()
     {
-        _detect.MovementChanged += StartMove;
+        _fillingComponents.MovementChanged += OnMovementChanged;
     }
 
     private void OnDisable()
     {
-        _detect.MovementChanged -= StartMove;
+        _fillingComponents.MovementChanged -= OnMovementChanged;
     }
 
     private void Start()
     {
+        _runningTime = 1;
         _distanceMoving = 3;
         _rigidbody2D = GetComponent<Rigidbody2D>();
 
@@ -35,10 +37,6 @@ public class MovementСomponents : MonoBehaviour
         {
             Move();
         }
-        else
-        {
-            return;
-        }
     }
 
     public void ResetMarshmallowCat()
@@ -46,14 +44,14 @@ public class MovementСomponents : MonoBehaviour
         _currentPosition = transform.position;
     }
 
-    private void StartMove()
+    private void OnMovementChanged()
     {
         _isMove = true;
     }
 
     private void Move()
     {
-        if(_duration <= 1)
+        if(_duration <= _runningTime)
         {
             _duration += Time.deltaTime;
             _rigidbody2D.MovePosition(Vector3.Lerp(_currentPosition, _target.position, _duration));
