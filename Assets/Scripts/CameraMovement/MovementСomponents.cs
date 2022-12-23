@@ -1,33 +1,29 @@
 using UnityEngine;
 
-public class MovementСomponent : MonoBehaviour
+public class MovementСomponents : MonoBehaviour
 {
     [SerializeField] private Transform _target;
-    [SerializeField] private DetectСomponent _detectСomponent;
+    [SerializeField] private Detect _detect;
 
     private float _duration;
-    private int _distanceX;
-    private int _distanceY;
-    private int _distanceZ;
+    private int _distanceMoving;
     private bool _isMove;
     private Vector3 _currentPosition;
     private Rigidbody2D _rigidbody2D;
 
     private void OnEnable()
     {
-        _detectСomponent.MovementChanged += StartMove;
+        _detect.MovementChanged += StartMove;
     }
 
     private void OnDisable()
     {
-        _detectСomponent.MovementChanged -= StartMove;
+        _detect.MovementChanged -= StartMove;
     }
 
     private void Start()
     {
-        _distanceX = 0;
-        _distanceY = 3;
-        _distanceZ = 0;
+        _distanceMoving = 3;
         _rigidbody2D = GetComponent<Rigidbody2D>();
 
         ResetMarshmallowCat();
@@ -37,7 +33,7 @@ public class MovementСomponent : MonoBehaviour
     {
         if(_isMove)
         {
-            Movement();
+            Move();
         }
         else
         {
@@ -55,7 +51,7 @@ public class MovementСomponent : MonoBehaviour
         _isMove = true;
     }
 
-    private void Movement()
+    private void Move()
     {
         if(_duration <= 1)
         {
@@ -65,7 +61,7 @@ public class MovementСomponent : MonoBehaviour
         else
         {
             _currentPosition = transform.position;
-            _target.position += new Vector3(_distanceX, _distanceY, _distanceZ);
+            _target.position += Vector3.up * _distanceMoving;
             _isMove = false;
             _duration = 0;
         }
