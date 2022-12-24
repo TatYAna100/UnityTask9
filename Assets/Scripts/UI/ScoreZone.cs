@@ -12,7 +12,7 @@ public class ScoreZone : MonoBehaviour
         ResetPlayer();
     }
 
-    public void IncreaseScore()
+    public void Increase()
     {
         _score++;
         ScoreChanged?.Invoke(_score);

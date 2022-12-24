@@ -21,7 +21,7 @@ public class MarshmallowCatCollisionHandler : MonoBehaviour
         if (collision.TryGetComponent(out ScoreZone scoreZone))
         {
             _reached?.Invoke();
-            scoreZone.IncreaseScore();
+            scoreZone.Increase();
             _animator.SetTrigger(_collision);
         }
         else if (collision.TryGetComponent(out GameOverZone gameOverZone))
