@@ -422,7 +422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 1888789750}
-  "_detect\u0421omponent": {fileID: 203533280}
+  _filling: {fileID: 203533280}
 --- !u!1 &162253498
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,7 +559,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 203533278}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0d818ffc18110649b53ec02b3ec0c9f, type: 3}
+  m_Script: {fileID: 11500000, guid: 709395948a8a74143ae811a5936db746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _distanceLowPoint: 6.7
@@ -778,7 +778,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 2}
+  m_Offset: {x: 0, y: 2.2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}

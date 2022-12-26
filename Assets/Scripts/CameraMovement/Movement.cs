@@ -25,7 +25,7 @@ public class Movement : MonoBehaviour
 
     private void Start()
     {
-        _runningTime = 0.003f;
+        _runningTime = 0.01f;
         _distanceMoving = 3;
         _rigidbody2D = GetComponent<Rigidbody2D>();
 
