@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(MarshmallowCat))]
+[RequireComponent(typeof(Animator))]
 public class MarshmallowCatCollisionHandler : MonoBehaviour
 {
     [SerializeField] private UnityEvent _reached;
